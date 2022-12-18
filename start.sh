@@ -9,10 +9,6 @@ do
   sleep 1
 done
 
-python3 createsuperuser.py
-python3 init_status_model.py
-python3 manage.py collectstatic --noinput
-
 echo "=Starting runserver="
 gunicorn wsgi:application \
          --bind 0.0.0.0:80\
