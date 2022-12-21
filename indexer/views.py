@@ -27,3 +27,4 @@ class EventBoughtViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
     filterset_class = EventBoughtFilter
     ordering_fields = ['amount']
+    http_method_names = ['get', 'options', 'head']
