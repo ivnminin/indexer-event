@@ -10,15 +10,20 @@ class Contract(models.Model):
     name = models.CharField(max_length=100, unique=True)
     address = models.CharField(max_length=42, unique=True)
 
+    def __str__(self):
+        return self.name
 
 class EventBought(models.Model):
-    buyer_address = models.CharField(max_length=42)
+    buyer_address = models.CharField(max_length=42, verbose_name='address')
     amount = models.CharField(max_length=255)
     tx = models.CharField(max_length=255)
 
+    class Meta:
+        ordering = ['buyer_address']
+
 
 class EventTransfer(models.Model):
-    _from = models.CharField(max_length=42)
+    _from = models.CharField(max_length=42, verbose_name='from')
     to = models.CharField(max_length=42)
     amount = models.CharField(max_length=255)
     tx = models.CharField(max_length=255)
